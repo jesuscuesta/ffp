@@ -1,0 +1,29 @@
+[{
+    "id": 1,
+    "nombre": "Capitán América",
+    "energia": 30,
+    "ataques": [{
+        "nombre": "Lanzar Escudo",
+        "valor": 10
+      },
+      {
+        "nombre": "Puñetazo",
+        "valor": 3
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Iroman",
+    "energia": 20,
+    "ataques": [{
+        "nombre": "Rayo de mano",
+        "valor": 10
+      },
+      {
+        "nombre": "Puñetazo",
+        "valor": 1
+      }
+    ]
+  }
+]
