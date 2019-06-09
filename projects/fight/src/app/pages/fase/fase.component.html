@@ -4,14 +4,23 @@
 <div>
   Entorno
 
-  <div>
-    <fight-personaje></fight-personaje>
-  </div>
-
-  <div>
-    <fight-personaje></fight-personaje>
+  <div *ngFor="let person of allPersonajes">
+    <fight-personaje
+      [personaje]="person"
+      (ataque)="recibirAtaque($event)"
+    ></fight-personaje>
   </div>
 </div>
+
 <div>
   Barra Inferior con opciones
+</div>
+<div>
+  <button (click)="increment()">Increment</button>
+
+  <div>Current Count: {{ count$ | async }}</div>
+
+  <button (click)="decrement()">Decrement</button>
+
+  <button (click)="reset()">Reset Counter</button>
 </div>
