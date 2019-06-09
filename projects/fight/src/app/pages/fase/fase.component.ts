@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonajesService } from '../../shared/services/personajes.service';
+import { Personajes } from '../../shared/model/personajes';
 
 @Component({
   selector: 'fight-fase',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fase.component.css']
 })
 export class FaseComponent implements OnInit {
-
-  constructor() { }
+  public allPersonajes: Personajes[];
+  constructor(private personajesService: PersonajesService) {}
 
   ngOnInit() {
+    this.personajesService
+      .getPersonajes()
+      .subscribe(data => (this.allPersonajes = data));
   }
 
+  public recibirAtaque(ataqueRecibido): void {
+    const personajeRecibeAtaque = this.allPersonajes.findIndex(
+      data => data.id != ataqueRecibido
+    );
+    this.allPersonajes[personajeRecibeAtaque].energia -= 10;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Personajes } from '../../model/personajes';
 
 @Component({
   selector: 'fight-personaje',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonajeComponent implements OnInit {
 
+  @Input() personaje: Personajes;
+  @Output() ataque = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public atacar() {
+    console.log('atacando');
+    this.ataque.emit(this.personaje.id.toString());
   }
 
 }
